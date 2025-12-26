@@ -18,13 +18,19 @@ app.use(express.json());
 //     .catch(err => console.error('MongoDB connection error:', err));
 
 // MongoDB Connection
+// mongoose.connect(process.env.MONGO_URI)
+//     .then(() => {
+//         console.log('✅ Connected to MongoDB');
+// })
+//     .catch((err) => {
+//         console.error('❌ MongoDB connection error:', err.message);
+// });
+
+
 mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log('✅ Connected to MongoDB');
-})
-    .catch((err) => {
-        console.error('❌ MongoDB connection error:', err.message);
-});
+  .then(() => console.log('✅ DATABASE CONNECTED SUCCESSFULLY'))
+  .catch((err) => console.error('❌ DATABASE CONNECTION ERROR:', err.message));
+
 
 const appserver = http.createServer(app);
 
@@ -179,6 +185,7 @@ const PORT = process.env.PORT || 3001;
 appserver.listen(PORT, () => {
     console.log(`NexTalk Server running on port ${PORT}`);
 });
+
 
 
 
