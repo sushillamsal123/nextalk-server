@@ -1,4 +1,4 @@
-const require('dotenv').config();
+require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/nextalk')
+mongoose.connect(process.env.MONGO_URI
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
 
@@ -170,4 +170,5 @@ const PORT = process.env.PORT || 3001;
 appserver.listen(PORT, () => {
     console.log(`NexTalk Server running on port ${PORT}`);
 });
+
 
