@@ -1,4 +1,4 @@
-require('dotenv').config();
+const require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -170,3 +170,4 @@ const PORT = process.env.PORT || 3001;
 appserver.listen(PORT, () => {
     console.log(`NexTalk Server running on port ${PORT}`);
 });
+
